@@ -19,7 +19,8 @@ with open('drug_combinations.csv', newline='') as csvfile:
         # print(row)
         source = row['source']
         target = row['target']
-        label = row['weight']
+        label = int(row['weight'])
+        # print(type(label)) should be int
         if source not in node_list:
             node_list.append(source)
         if target not in node_list:
@@ -43,8 +44,8 @@ new_list = []
 for neighbor in neighbors_list:
     new_list.append(','.join(neighbor))
 # print(new_list)
-p = nx.shortest_path(G, source='metformin', target='glyburide')
-print(p)
+# p = nx.shortest_path(G, source='metformin', target='glyburide')
+# print(p)
 
 
 styles = {
@@ -61,7 +62,7 @@ styles = {
 
 nodes = [
     {
-        'data': {'id': label, 'label': label, 'neighbor': neighbor}
+        'data': {'id': label, 'label': str(label), 'neighbor': neighbor}
     }
     for label in (
         node_list
@@ -74,7 +75,7 @@ nodes = [
 # print(nodes)
 
 edges = [
-    {'data': {'id': source+'--'+target+'--'+label, 'source': source,
+    {'data': {'id': source+'--'+target+'--'+str(label), 'source': source,
               'target': target, 'label': label}}
     for source, target, label in (
         edge_list
@@ -109,6 +110,12 @@ default_stylesheet = [
             'border-opacity': '1',
             'border-width': '0.075px',
             'label': 'data(label)'
+        }
+    },
+    {
+        'selector': '[label > 1000]',
+        'style': {
+            'line-color': 'red'
         }
     }
 ]
@@ -156,7 +163,7 @@ def displayTapNodeData(data):
               Input('cytoscape-event-callbacks-2', 'mouseoverEdgeData'))
 def displayTapEdgeData(data):
     if data:
-        return data['label'] + " patients have taken " + \
+        return str(data['label']) + " patients have taken " + \
             data['source'].upper() + " with " + data['target'].upper()
 
 

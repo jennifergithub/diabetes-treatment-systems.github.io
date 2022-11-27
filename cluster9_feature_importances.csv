@@ -1,0 +1,11 @@
+,0
+number_outpatient x diag_2_Circulatory,0.10956600709262966
+time_in_hospital x num_lab_procedures,0.10901629210560491
+num_lab_procedures x num_procedures,0.06096321345571722
+num_lab_procedures x diag_2_Genitourinary,0.056103381571759176
+num_lab_procedures x num_medications,0.05326087053611565
+num_lab_procedures x diag_1_Musculoskeletal,0.04851480376548541
+time_in_hospital x number_inpatient,0.04768748909337191
+num_medications x diag_2_Genitourinary,0.04406953272486439
+time_in_hospital,0.03149921893465341
+num_procedures x diag_2_Genitourinary,0.03129274688229528
