@@ -1,0 +1,11 @@
+,0
+number_inpatient,0.24575443904023186
+time_in_hospital,0.2050091231998161
+number_diagnoses,0.14148078758294333
+number_outpatient,0.08233399599170574
+num_lab_procedures,0.0818943445753947
+diabetesMed,0.07960022203122187
+admission_source_id,0.07707593986982768
+num_medications,0.07250914217965797
+discharge_disposition_id,0.069169363666207
+admission_type_id,0.06477891155520359
